@@ -1,0 +1,20 @@
+---
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import Logo from "./Logo.astro";
+---
+
+<header class="lg:flex p-4 lg:p-6 items-center">
+  <Astronav>
+    <div class="flex w-full justify-between">
+      <a><Logo class="w-8 h-8" /></a>
+      <MenuIcon class="w-6 h-6 text-white block lg:hidden" />
+    </div>
+    <MenuItems class="hidden lg:flex mt-3 lg:mt-0 lg:border-deepPink lg:border rounded">
+      <ul class="flex flex-col lg:flex-row lg:gap-5 p-2">
+        <li><a href="/">Home</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </MenuItems>
+  </Astronav>
+</header>

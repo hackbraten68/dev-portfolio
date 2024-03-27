@@ -1,0 +1,26 @@
+---
+import MainHead from "./MainHead.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import Parallax from "../components/Parallax.astro";
+const { title, seoTitle, seoDesc } = Astro.props;
+---
+
+<html>
+	<MainHead
+	title={title} 
+	seoTitle={seoTitle}
+	seoDesc={seoDesc}
+	/>
+	<body class="bg-synthwaveNachtBlau text-white grid gap-0">
+		<Nav />
+		<slot />
+		<Footer />
+		<style>
+			body {
+				font-family: "Raleway", sans-serif;
+				min-height: 100vh;
+			}
+		</style>
+	</body>
+</html>

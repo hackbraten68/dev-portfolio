@@ -1,0 +1,20 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  theme: {
+    extend: {
+      colors: {
+        // Background
+        synthwaveNachtBlau: '#190E32',
+
+        // Accent colors
+        deepPink: '#FF1493',
+        blueViolet: '#8A2BE2',
+        aquaBlue: '#38EFF5',
+        navyBlue: '#00008B',
+        deepPurple: '#800080',
+      },
+    },
+  },
+  plugins: [],
+};
