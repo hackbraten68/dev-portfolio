@@ -1,4 +1,5 @@
 # Astro Starter Kit: Basics
+https://youtu.be/lq5Ponmogsw?si=aVluE5T_JKy58leL&t=3119
 
 ```sh
 npm create astro@latest -- --template basics

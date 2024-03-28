@@ -1,8 +1,8 @@
 ---
 import MainHead from "./MainHead.astro";
 import Nav from "../components/Nav.astro";
+import Sunset from "../components/Sunset.astro";
 import Footer from "../components/Footer.astro";
-import Parallax from "../components/Parallax.astro";
 const { title, seoTitle, seoDesc } = Astro.props;
 ---
 
@@ -14,6 +14,7 @@ const { title, seoTitle, seoDesc } = Astro.props;
 	/>
 	<body class="bg-synthwaveNachtBlau text-white grid gap-0">
 		<Nav />
+		<Sunset />
 		<slot />
 		<Footer />
 		<style>

@@ -1,0 +1,21 @@
+<div id="typed-strings">
+	<p>i am a <strong>frontend <span class="text-deepPink">developer</span></strong></p>
+	<p>i made my <strong>hobby to my <span class="text-deepPink">profession</span></strong></p>
+	<p>i work with <strong>Shopify, <span class="text-deepPink">Hyvä</span>, TailwindCSS, <span class="text-deepPink">AlpineJS</span></strong></p>
+</div>
+<div class="">
+	<span class="" id="typed"></span>
+</div>
+
+<script>
+	import Typed from "typed.js";
+
+	var typed = new Typed('#typed', {
+    stringsElement: '#typed-strings',
+	typeSpeed: 50,
+	backSpeed: 30,
+	loop: true,
+  	loopCount: Infinity,
+	showCursor: true,
+  });
+  </script>
