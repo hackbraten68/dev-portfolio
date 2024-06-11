@@ -16,6 +16,7 @@ export default {
         aquaBlue: '#38EFF5',
         navyBlue: '#00008B',
         deepPurple: '#800080',
+        greenMint: '#64ffda',
       },
     },
   },

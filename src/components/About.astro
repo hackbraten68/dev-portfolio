@@ -1,0 +1,37 @@
+---
+import Github from "./sub/Github.astro";
+import Linkedin from "./sub/Linkedin.astro";
+import Mail from "./sub/Mail.astro";
+import Image from "astro/components/Image.astro";
+---
+<section class="min-h-screen w-fit flex items-center justify-between">
+    
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <div class="lg:col-span-2 about_text p-4">
+                <div class="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore nesciunt debitis molestiae, hic.</p>
+                    <p>This is another Sentence</p>
+                    <p>Another Sentence</p>
+                </div>
+                <ul>
+                    <li>Test</li>
+                    <li>Test 2</li>
+                    <li>Test 3</li>
+                </ul>
+            </div>
+            <div class="about_avatar p-4">
+                <div class="flex flex-col py-10 lg:py-0">
+                    <!-- Dev Avatar -->
+                    <img class="lg:w-72 lg:h-72 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src="/avatar/dev_avatar.jpg" alt="Bordered avatar">
+                    <!-- Socials -->
+                    <div class="flex space-x-4 center justify-center lg:py-4 text-greenMint">
+                        <Github />
+                        <Linkedin />
+                        <Mail />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
