@@ -17,6 +17,20 @@ export default {
         navyBlue: '#00008B',
         deepPurple: '#800080',
         greenMint: '#64ffda',
+        powerGray: '#D7FCD4'
+      },
+      transitionTimingFunction: {
+        'custom-ease': 'cubic-bezier(0.68,-0.6,0.32,1.6)',
+        'custom-scale': 'cubic-bezier(0.22,1,0.36,1)'
+      },
+      animation: {
+        tilt: 'tilt 2s infinite linear',
+      },
+      keyframes: {
+        tilt: {
+          '0%, 100%': { transform: 'rotate(-1deg)' },
+          '50%': { transform: 'rotate(1deg)' },
+        },
       },
     },
   },

@@ -3,13 +3,13 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 import Logo from "./Logo.astro";
 ---
 
-<nav class="lg:flex px-3 lg:px-0 py-5 lg:py-6 items-center mx-auto lg:w-[1280px] h-auto">
+<nav class="lg:flex px-3 lg:px-0 py-5 lg:py-6 items-center mx-auto lg:w-[1024px] h-auto">
   <Astronav>
     <div class="flex w-full justify-between">
       <a><Logo class="w-8 h-8" /></a>
       <MenuIcon class="w-6 h-6 text-white block lg:hidden" />
     </div>
-    <MenuItems class="hidden lg:flex mt-3 lg:mt-0 lg:border-deepPink lg:border rounded">
+    <MenuItems class="hidden lg:flex mt-3 lg:mt-0">
       <ul class="flex flex-col lg:flex-row lg:gap-5 p-2">
         <li><a href="/">Home</a></li>
         <li><a href="/projects">Projects</a></li>

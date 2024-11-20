@@ -1,4 +1,31 @@
 ---
-const { title, url } = Astro.props;
+const { title, url, description, pubDate, tags } = Astro.props;
+import { format } from 'date-fns';
+import { enGB } from 'date-fns/locale';
+
+const formattedDate = format(new Date(pubDate), "dd. MMMM yyyy", { locale: enGB });
 ---
-<li><a href={url}>{title}</a></li>
+
+<a href={url} class="group flex bg-transparent px-2 transition duration-500 custom-scale hover:scale-105 rounded-xl hover:rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 relative overflow-hidden">
+    <div class="py-6 relative z-10"> 
+        <article>
+            <div class="space-y-2 p-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
+                <dl>
+                    <dt class="sr-only">Published on</dt>
+                    <dd class="text-sm font-normal leading-6 text-gray-500 dark:text-gray-400">
+                        <time datetime={pubDate}>{formattedDate}</time>
+                    </dd>
+                </dl>
+                <div class="space-y-5 xl:col-span-4">
+                    <div class="space-y-1">
+                        <div class="">
+                            <h2 class="text-2xl font-bold leading-8 tracking-tight text-white">{title}</h2>
+                        </div>
+                        <div class="prose max-w-none pt-5 text-gray-500 dark:text-gray-400">{description}</div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</a>
+

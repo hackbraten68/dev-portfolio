@@ -1,15 +1,25 @@
 ---
 import TypedText from "./TypedText.astro";
 import DevTiles from "./DevTiles.astro";
+const { name, welcomeText } = Astro.props;
 ---
 
-<section class="grid lg:flex items-center justify-center gap-6 h-5/6 lg:mt-12 my-auto mx-auto lg:w-[1024px] px-4 lg:px-0 lg:py-5">
-    <div class="space-y-4">
-        <p class="text-3xl font-menlo">Hi, my name is <span class="text-6xl text-deepPink">Sam</span></p>
-        <div class="text-xl">
+<section class="lg:flex items-center justify-center gap-6 h-5/6 my-auto mx-auto lg:w-[1024px] px-4 lg:px-0">
+    <div class="lg:w-2/3 pr-3 space-y-3">
+        <p class="text-3xl font-menlo">Hi, my name is <span class="text-4xl lg:text-6xl text-deepPink">{name}</span></p>
+        <div class="text-xl h-[50px]">
             <TypedText />
         </div>
-        <div class="">Welcome to my Developer Portfolio Page. I am a passionate Frontend Developer with hands-on experience in backend technologies and cloud solutions. This portfolio showcases my latest personal projects, along with blog posts where I share insights, tips, and lessons from my development journey. Feel free to</div>
-        <DevTiles />
+        <div class="">{welcomeText}</div>
     </div>
+    <DevTiles 
+        tileOne="My Journey"
+        tileOneHref="Roadmap →"
+
+        tileTwo="Hire Me"
+        tileTwoHref="Resume →"
+
+        tileThree="What I built"
+        tileThreeHref="Projects →"
+    />
 </section>

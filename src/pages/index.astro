@@ -1,13 +1,18 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import DevOverview from "../components/DevOverview.astro";
-import Nav from "../components/Nav.astro";
+import LatestBlogPosts from "../components/LatestBlogPosts.astro";
 ---
 
 <MainLayout 
-	title="This is Sam - Dev Portfolio"
+	title="This is Sam - Dev Portfolio | samueldillenburg.de"
 	seoTitle="This is Sam - a frontend web developer portfolio page"
-	seoDesc="A New Portfolio Page made with astro, tailwindcss and alpineJS"
+	seoDesc="A New Portfolio Page made with astro and tailwindcss"
 >
-<DevOverview />
+<DevOverview 
+	name="Sam"
+	welcomeText="Welcome to my Developer Portfolio Page. I am a passionate Frontend Developer with hands-on experience in backend technologies and cloud solutions. This portfolio showcases my latest personal projects, along with blog posts where I share insights, tips, and lessons from my development journey. Feel free to"
+
+/>
+<LatestBlogPosts>
 </MainLayout>
