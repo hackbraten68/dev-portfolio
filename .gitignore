@@ -19,3 +19,7 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+.idea/vcs.xml
+.idea/dev-portfolio.iml
+.idea/material_theme_project_new.xml
+.idea/modules.xml

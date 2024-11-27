@@ -1,31 +1,31 @@
 ---
-const { title, url, description, pubDate, tags } = Astro.props;
-import { format } from 'date-fns';
-import { enGB } from 'date-fns/locale';
-
-const formattedDate = format(new Date(pubDate), "dd. MMMM yyyy", { locale: enGB });
+const { frontmatter, Content } = Astro.props;
+const description = frontmatter.description || "Beschreibung fehlt";
+const pubDate = frontmatter.pubDate ? new Date(frontmatter.pubDate).toISOString().slice(0, 10) : "Datum fehlt";
+const author = frontmatter.author || "Autor unbekannt";
+const imageUrl = frontmatter.image.url || "default.png";
+const imageAlt = frontmatter.image.alt || "Bildbeschreibung fehlt";
+const tags = frontmatter.tags || [];
 ---
 
-<a href={url} class="group flex bg-transparent px-2 transition duration-500 custom-scale hover:scale-105 rounded-xl hover:rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 relative overflow-hidden">
-    <div class="py-6 relative z-10"> 
-        <article>
-            <div class="space-y-2 p-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                <dl>
-                    <dt class="sr-only">Published on</dt>
-                    <dd class="text-sm font-normal leading-6 text-gray-500 dark:text-gray-400">
-                        <time datetime={pubDate}>{formattedDate}</time>
-                    </dd>
-                </dl>
-                <div class="space-y-5 xl:col-span-4">
-                    <div class="space-y-1">
-                        <div class="">
-                            <h2 class="text-2xl font-bold leading-8 tracking-tight text-white">{title}</h2>
-                        </div>
-                        <div class="prose max-w-none pt-5 text-gray-500 dark:text-gray-400">{description}</div>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </div>
-</a>
+<article>
+    <header>
+        <h1>{frontmatter.title}</h1>
+        <p><em>{description}</em></p>
+        <p>{pubDate}</p>
+        <p>Written by: {author}</p>
+        <img src={imageUrl} width="300" alt={imageAlt} />
+    </header>
 
+    <section>
+        { Content ? <Content /> : 'Content not available' }
+    </section>
+
+    <footer>
+        <div class="tags">
+            {tags.map((tag) => (
+                    <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+            ))}
+        </div>
+    </footer>
+</article>

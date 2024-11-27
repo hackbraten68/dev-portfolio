@@ -1,17 +1,19 @@
 ---
+import { Provider } from "../components/ui/provider"
 import MainHead from "./MainHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 const { title, seoTitle, seoDesc } = Astro.props;
 ---
 
-<html>
-	<MainHead
-	title={title} 
-	seoTitle={seoTitle}
-	seoDesc={seoDesc}
-	/>
-	<body class="flex flex-col bg-synthwaveNachtBlau text-white">
+
+	<html>
+		<MainHead
+			title={title}
+			seoTitle={seoTitle}
+			seoDesc={seoDesc}
+		/>
+		<body class="flex flex-col bg-synthwaveNachtBlau text-white">
 		<Header />
 		<main>
 			<slot />
@@ -23,5 +25,5 @@ const { title, seoTitle, seoDesc } = Astro.props;
 			}
 		</style>
 		<Footer />
-	</body>
-</html>
+		</body>
+	</html>

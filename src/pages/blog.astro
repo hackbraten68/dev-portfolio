@@ -1,15 +1,28 @@
 ---
+// src/pages/index.astro
 import MainLayout from "../layouts/MainLayout.astro";
-import BlogPost from '../components/BlogPost.astro';
+import BlogPostTile from '../components/BlogPostTile.astro';
 const allPosts = await Astro.glob('../pages/posts/*.md');
 ---
 
-<MainLayout 
+<MainLayout
 	title="This is Sam - Dev Portfolio"
 	seoTitle="This is Sam - a frontend web developer portfolio page"
 	seoDesc="A New Portfolio Page made with astro, tailwindcss and alpineJS"
 >
-<ul>
-	{allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
-</ul>
+	<section class="lg:w-[1024px] mx-auto border-t border-gray-700 pt-8">
+		<ul>
+			{allPosts.map((post) => (
+				<BlogPostTile
+					key={post.url}
+					pubDate={post.frontmatter.pubDate}
+					url={post.url}
+					title={post.frontmatter.title}
+					description={post.frontmatter.description}
+					tags={post.frontmatter.tags}
+					Content={post.Content}
+				/>
+			))}
+		</ul>
+	</section>
 </MainLayout>

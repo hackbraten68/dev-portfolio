@@ -1,0 +1,43 @@
+---
+import { projectTiles } from "../lib/projectTiles";
+import { icons } from "../lib/icons";
+---
+<div class="flex items-center justify-center py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl" style="max-width: 1024px;">
+        {projectTiles.map(tile => (
+                <div class="group relative my-2">
+                    <div class={`absolute -inset-0.5 rounded-lg bg-gradient-to-r ${tile.gradientFrom} ${tile.gradientTo} opacity-50 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200`}></div>
+                    <a href={tile.href} class="relative flex flex-col items-start rounded-lg bg-white p-5 dark:bg-synthwaveNachtBlau">
+                        <div class="flex items-center justify-between w-full mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class={`h-8 w-8 -rotate-6 ${tile.iconColor} transition-transform duration-1000 group-hover:rotate-180`}
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={tile.icon}></path>
+                            </svg>
+                            <svg stroke="currentColor"
+                                 fill="currentColor"
+                                 stroke-width="0"
+                                 viewBox="0 0 1024 1024"
+                                 class="text-gray-700 hover:text-primary-color-500 dark:text-gray-200 dark:hover:text-primary-color-dark-500 h-6 w-6"
+                                 height="1em"
+                                 width="1em"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d={`${icons.github}`}></path>
+                            </svg>
+                        </div>
+                        <span class="text-gray-900 dark:text-gray-100 pr-2">{tile.title}</span>
+                        <p class="text-gray-700 dark:text-gray-300 mb-2">{tile.description}</p>
+                        <div class="flex flex-wrap gap-2">
+                            {tile.tags.map(tag => (
+                                    <span class="inline-block bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded-full px-3 py-1 text-sm font-semibold">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    </a>
+                </div>
+        ))}
+    </div>
+</div>

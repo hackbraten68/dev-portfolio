@@ -1,0 +1,44 @@
+---
+import Code from "../components/icons/Code.astro";
+import Backend from "../components/icons/Backend.astro";
+import Database from "../components/icons/Database.astro";
+---
+
+<div class="bg-synthwaveNachtBlau flex items-center justify-center mx-auto w-[1024px]">
+    <div x-data="{ activeTab: 0 }" class=" p-4 bg-synthwaveNachtBlau shadow rounded">
+        <!-- Tab Buttons -->
+        <div class="flex border-b border-gray-700">
+            <button
+                    @click="activeTab = 0"
+                    :class="activeTab === 0 ? 'border-amber-400 text-amber-400' : 'border-transparent text-amber-300 hover:text-deepPink'"
+                    class="flex items-center justify-center gap-x-2 px-4 py-2 font-medium text-sm border-b-2 focus:outline-none">
+                <Code class="text-white" /> <span>Frontend technologies</span>
+            </button>
+            <button
+                    @click="activeTab = 1"
+                    :class="activeTab === 1 ? 'border-blueViolet text-blueViolet' : 'border-transparent text-blueViolet hover:text-deepPink'"
+                    class="flex items-center justify-center gap-x-2 px-4 py-2 font-medium text-sm border-b-2 focus:outline-none">
+                <Backend class="text-white" /> <span>Backend technologies</span>
+            </button>
+            <button
+                    @click="activeTab = 2"
+                    :class="activeTab === 2 ? 'border-greenMint text-greenMint' : 'border-transparent text-greenMint hover:text-deepPink'"
+                    class="flex items-center justify-center gap-x-2 px-4 py-2 font-medium text-sm border-b-2 focus:outline-none">
+                <Database class="text-white" /> <span>Database & More</span>
+            </button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="mt-4">
+            <div x-show="activeTab === 0" class="text-gray-700">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Taciti auctor dictumst sodales duis ipsum aptent semper arcu vel taciti quam. Per netus erat urna lorem tincidunt risus conubia auctor eu cras laoreet. Praesent montes eros semper class dui viverra eleifend amet fringilla maecenas pulvinar.</p>
+            </div>
+            <div x-show="activeTab === 1" class="text-gray-700">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At turpis praesent class consectetur gravida maecenas dapibus per magna hac quis. Himenaeos ipsum ultricies erat sapien eu tellus diam phasellus class amet luctus. Eu sapien conubia felis commodo ullamcorper curabitur massa potenti hendrerit id viverra. Ad ipsum convallis gravida nullam facilisi rhoncus faucibus dictumst nascetur et nullam. Arcu commodo varius auctor massa sociis metus interdum lorem posuere sollicitudin ultrices. Arcu magnis velit dui venenatis hac ridiculus nunc odio condimentum ornare laoreet.</p>
+            </div>
+            <div x-show="activeTab === 2" class="text-gray-700">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At turpis praesent class consectetur gravida maecenas dapibus per magna hac quis. Himenaeos ipsum ultricies erat sapien eu tellus diam phasellus class amet luctus. Eu sapien conubia felis commodo ullamcorper curabitur massa potenti hendrerit id viverra. Ad ipsum convallis gravida nullam facilisi rhoncus faucibus dictumst nascetur et nullam. Arcu commodo varius auctor massa sociis metus interdum lorem posuere sollicitudin ultrices. Arcu magnis velit dui venenatis hac ridiculus nunc odio condimentum ornare laoreet.</p>
+            </div>
+        </div>
+    </div>
+</div>
