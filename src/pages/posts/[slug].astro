@@ -1,5 +1,6 @@
 ---
 import BlogPost from '../../components/BlogPost.astro';
+import { getStaticPaths } from '../utils/getStaticPaths.js';
 const post = Astro.props;
 
 export async function getStaticPaths() {
