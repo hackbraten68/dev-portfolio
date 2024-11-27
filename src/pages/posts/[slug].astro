@@ -1,17 +1,20 @@
 ---
 import BlogPost from '../../components/BlogPost.astro';
-import { getStaticPaths } from '../utils/getStaticPaths.js';
-const post = Astro.props;
 
 export async function getStaticPaths() {
-    const allPosts = await Astro.glob('../posts/*.md');
+    const allPosts = await fetch('https://api.example.com/posts');
+    const data = await allPosts.json();
 
-    const paths = allPosts.map((post) => ({
-        params: { slug: post.slug },
-    }));
-
-    return paths;
+    return data.map((post) => {
+        return {
+            params: { slug: post.slug },
+            props: { post },
+        };
+    });
 }
+
+const { slug } = Astro.params;
+const { post } = Astro.props;
 ---
 
-<BlogPost {...post} />
+<BlogPost post={post} />
