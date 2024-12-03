@@ -1,0 +1,88 @@
+---
+import { checkpoints } from "../lib/checkpoints";
+---
+<div class="timeline-body m-0">
+    <div class="title text-center">
+        <h1 class="m-1 text-5xl">My Journey</h1>
+        <p class="text-xl tracking-wide">as a self-taught Developer</p>
+    </div>
+    <div class="text-center mt-10">PRESENT</div>
+    <div class="timeline my-2 mx-auto max-w-[34.15em]">
+        {checkpoints.slice().reverse().map((checkpoint) => (
+                <div class="checkpoint max-w-[34em] py-8 relative
+                            odd:border-l-2 odd:border-gray-700 odd:pl-12 odd:translate-x-[17em]
+                            even:border-r-2 even:border-gray-700 even:pr-12 even:-translate-x-[16.9em]">
+                    <div class="border-2 border-white rounded-2xl p-6">
+                        <h2 class="mb-2">{checkpoint.title}</h2>
+                        <p class="leading-7">{checkpoint.description}</p>
+                    </div>
+                </div>
+        ))}
+    </div>
+    <div class="text-center mt-2">1992</div>
+</div>
+
+<style>
+    .checkpoint:nth-child(odd)::before,
+    .checkpoint:nth-child(even)::before {
+        content: '';
+        background: #374151;
+        width: 3rem;
+        height: 2px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .checkpoint:nth-child(odd)::before {
+        left: 0;
+    }
+
+    .checkpoint:nth-child(even)::before {
+        right: 0;
+    }
+
+    .checkpoint:nth-child(odd) div::before,
+    .checkpoint:nth-child(even) div::before {
+        content: '';
+        background: white;
+        box-shadow: 0 0 0.5rem #fff;
+        width: 0.8rem;
+        height: 0.8rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+    }
+
+    .checkpoint:nth-child(odd) div::before {
+        left: -0.5rem;
+    }
+    .checkpoint:nth-child(even) div::before {
+        right: -0.5rem;
+    }
+    @media screen and (max-width: 1150px) {
+        .timeline {
+            width: 80vw;
+        }
+        .timeline .checkpoint {
+            width: 100%;
+            transform: none;
+            padding-left: 0;
+            padding-right: 0;
+            border: none;
+        }
+        .timeline .checkpoint::before {
+            width: 3px;
+            height: 4em;
+            top: -2em;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .timeline .checkpoint div::before {
+            top: -0.5em;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+</style>
