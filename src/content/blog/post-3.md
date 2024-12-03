@@ -2,7 +2,7 @@
 title: 'The best laptops for developers in 2022'
 pubDate: 2024-01-20
 author: 'John Doe'
-image: 'image1.png'
+image: 'image.png'
 tags: ['tech', 'normalguy']
 slug: the-best-laptops-for-developers-in-2022
 ---

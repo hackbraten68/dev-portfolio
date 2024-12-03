@@ -3,7 +3,7 @@ import { projectTiles } from "../lib/projectTiles";
 import { icons } from "../lib/icons";
 ---
 <div class="flex items-center justify-center py-12">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl" style="max-width: 1024px;">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-[1024px]">
         {projectTiles.map(tile => (
                 <div class="group relative my-2">
                     <div class={`absolute -inset-0.5 rounded-lg bg-gradient-to-r ${tile.gradientFrom} ${tile.gradientTo} opacity-50 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200`}></div>
