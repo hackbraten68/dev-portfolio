@@ -12,11 +12,16 @@ import react from '@astrojs/react';
 import alpinejs from '@astrojs/alpinejs';
 
 
+import netlify from '@astrojs/netlify';
+
+
 // https://astro.build/config
 export default defineConfig({
   // renderer: "@astrojs/react", // Hinzufügen des React-Renderers
   site: "https://example.com",
+
   integrations: [tailwind(), icon(), mdx(), sitemap(), react(), alpine()],
+
   content: {
     collections: {
       blog: {
@@ -24,4 +29,6 @@ export default defineConfig({
       },
     },
   },
+
+  adapter: netlify(),
 });
