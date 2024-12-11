@@ -8,11 +8,11 @@ const blogCollection = defineCollection({
         author: z.string(),
         image: z.string(),
         tags: z.array(z.string()),
+        from: z.string(),
+        to: z.string(),
     }),
 });
 
 export const collections = {
     blog: blogCollection,
 };
-
-// from: z.string(), to: z.string() fuer spaeter

@@ -2,7 +2,7 @@
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+Inside your Astro project, you'll see the following folders and files:
 
 ```text
 /
@@ -23,14 +23,15 @@ Inside of your Astro project, you'll see the following folders and files:
 ## ✅ Task List
 
 ### 🟢 Open
-- [ ] ArticleCard CSS: **Card Styling, same CSS like in DevTiles**
 - [ ] Make MostRecentArticle work: **Only**
-    - [ ] Subtask
+- [ ] Project Struture Update (see above)
+- [ ] Add Flex View to Blog with AlpineJS
+- [ ] Add Styling to Blog Post Template
 
 ### 🟡 In Progress
 
 ### 🔵 Completed
-
+- [x] ArticleCard CSS: **Card Styling, same CSS like in DevTiles**
 ## 🌟 Preview
 [Demo](https://this-is-sam-v2.netlify.app/)
 

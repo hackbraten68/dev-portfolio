@@ -1,58 +1,36 @@
 ---
-import { formatDate } from "../utils";
+import { getCollection } from 'astro:content';
 import type { CollectionEntry } from "astro:content";
+import { ARTICLES_PER_PAGE } from "../constants";
 import Tags from "./Tags.astro";
 
-const { article } = Astro.props;
+const currentPage: number | null = +Astro.url.searchParams.get('page')! || 1;
 
-interface Props {
-    article: CollectionEntry<'blog'>;
-}
+const allBlogArticles: CollectionEntry<'blog'>[] = (await getCollection('blog'))
+    .sort((a:CollectionEntry<'blog'>, b:CollectionEntry<'blog'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const totalPages: number = Math.ceil(allBlogArticles.length / ARTICLES_PER_PAGE);
+
+const articlesForPage: CollectionEntry<'blog'>[] = allBlogArticles.slice((currentPage - 1) * ARTICLES_PER_PAGE, currentPage * ARTICLES_PER_PAGE);
 ---
-
-
-<!-- <div class="max-w-md mx-auto mt-10">
-    <div class="bg-transparent rounded-lg overflow-hidden">
-        <a href={'/articles/' + article.slug}>
-            <img
-                    src={'/images/' + article.data.image}
-                    alt="Article Image"
-                    class="w-full h-48 object-cover hover:opacity-75 transition duration-300 ease-in-out"
-            />
-        </a>
-        <div class="p-6">
-            <h2 class="text-2xl font-semibold mb-2">
-                <a href={'/articles/' + article.slug}> {article.data.title} </a>
-            </h2>
-            <p class="text-gray-600 text-sm mb-4">{formatDate(article.data.pubDate)}</p>
-            <Tags tags={article.data.tags} />
-        </div>
-    </div>
-</div> -->
-
-<div class="flex items-center  justify-center py-12">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-[1024px]">
-        <div class="group relative my-2">
-            <div class="">
-                <a href={'/articles/' + article.slug} class="relative flex items-start rounded-lg bg-white p-5 dark:bg-synthwaveNachtBlau">
-                    <div class="flex items-center flex-col justify-between w-full mb-4">
-                        <img
-                                src={'/images/' + article.data.image}
-                                alt="Article Image"
-                                class="w-full h-48 object-cover hover:opacity-75 transition duration-300 ease-in-out"
-                        />
-                        <div class="py-6">
-                            <h2 class="text-2xl font-semibold mb-2">
-                                <a href={'/articles/' + article.slug}> {article.data.title} </a>
-                            </h2>
-                            <h2 class="text-2xl font-semibold mb-2">
-                                <a href={'/articles/' + article.slug}> {article.data.title} </a>
-                            </h2>
-                            <Tags tags={article.data.tags} />
+<div class="flex items-center justify-center py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-[1024px]">
+        {articlesForPage.map(article => (
+                <div class="group relative my-2">
+                    <div class={`absolute -inset-0.5 rounded-lg bg-gradient-to-r ${article.data.from} ${article.data.to} opacity-50 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200 z-0`}></div>
+                    <a href={'/articles/' + article.slug} class="relative flex flex-col items-start rounded-lg bg-white p-5 dark:bg-synthwaveNachtBlau">
+                        <div class="flex items-center justify-between w-full mb-4">
+                            <img
+                                    src={'/images/' + article.data.image}
+                                    alt="Article Image"
+                                    class="w-full h-48 object-cover hover:opacity-75 transition duration-300 ease-in-out"
+                            />
                         </div>
-                    </div>
-                </a>
-            </div>
-        </div>
+                        <span class="text-gray-900 dark:text-gray-100 pr-2">{article.data.title}</span>
+                        <p class="text-gray-700 dark:text-gray-300 mb-2">{article.data.description}</p>
+                        <Tags tags={article.data.tags} />
+                    </a>
+                </div>
+        ))}
     </div>
 </div>

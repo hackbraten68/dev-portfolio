@@ -4,6 +4,8 @@ pubDate: 2024-01-20
 author: 'John Doe'
 image: 'image.png'
 tags: ['tech', 'hardware']
+from: 'from-green-500'
+to: 'to-blue-500'
 slug: the-best-laptops-for-developers-in-2023
 ---
 
