@@ -1,0 +1,12 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import BackgroundSketch from "../components/BackgroundSketch";
+---
+
+<MainLayout
+        title="This is Sam - Dev Portfolio | samueldillenburg.de"
+        seoTitle="This is Sam - a frontend web developer portfolio page"
+        seoDesc="A New Portfolio Page made with astro and tailwindcss"
+>
+    <BackgroundSketch client:only="react" />
+</MainLayout>

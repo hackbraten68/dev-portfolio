@@ -23,10 +23,11 @@ Inside your Astro project, you'll see the following folders and files:
 ## ✅ Task List
 
 ### 🟢 Open
-- [ ] Make MostRecentArticle work: **Only**
+- [ ] Make MostRecentArticle work
 - [ ] Project Struture Update (see above)
 - [ ] Add Flex View to Blog with AlpineJS
 - [ ] Add Styling to Blog Post Template
+- [ ] Re-factor Code -> tags href to /tags/...
 
 ### 🟡 In Progress
 
