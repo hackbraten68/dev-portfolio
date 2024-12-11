@@ -1,12 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 
-// Keine lokale `p5`-Importe erforderlich, da es über das CDN verfügbar gemacht wird
 const BackgroundSketch = () => {
     const sketchRef = useRef();
 
     useEffect(() => {
         const initializeP5 = async () => {
-            // Lade p5.js dynamisch über das CDN, falls noch nicht vorhanden
             if (!window.p5) {
                 await new Promise((resolve) => {
                     const script = document.createElement('script');
@@ -16,12 +14,11 @@ const BackgroundSketch = () => {
                 });
             }
 
-            // Prüfe, ob p5 global verfügbar ist
             if (window.p5) {
                 const sketch = (s) => {
                     const dotSize = 3;
                     const spacing = dotSize * 10;
-                    const minTValue = 20;
+                    const minTValue = 70;
                     const areaOfEffect = 100;
 
                     let dots = [];
@@ -39,7 +36,7 @@ const BackgroundSketch = () => {
                     };
 
                     s.draw = () => {
-                        s.background(0);
+                        s.background('#190E32');
                         dots.forEach((dot) => {
                             dot.update();
                             dot.render();
@@ -70,19 +67,28 @@ const BackgroundSketch = () => {
                             this.y = y;
                             this.size = size;
                             this.transparency = minTValue;
+                            this.isHovered = false; // Neuer Zustand für Hover
                         }
 
                         update() {
                             let distance = s.dist(s.mouseX, s.mouseY, this.x, this.y);
                             if (isMouseMoved && distance < areaOfEffect) {
                                 this.transparency = 255;
+                                this.isHovered = true; // Markiere als gehoverted
                             } else {
                                 this.transparency = s.max(minTValue, this.transparency - 10);
+                                this.isHovered = false; // Zurück zum Standardzustand
                             }
                         }
 
                         render() {
-                            s.fill(255, this.transparency);
+                            if (this.isHovered) {
+                                // Farbe für gehoverte Dots
+                                s.fill(255, 20, 147, this.transparency); // z.B. Orange
+                            } else {
+                                // Weiß für nicht gehoverte Dots
+                                s.fill(128, 0, 128, this.transparency);
+                            }
                             s.noStroke();
                             s.ellipse(this.x, this.y, this.size);
                         }
@@ -102,7 +108,7 @@ const BackgroundSketch = () => {
         initializeP5();
     }, []);
 
-    return <div ref={sketchRef} className="background-sketch" />;
+    return <div ref={sketchRef} className="fixed inset-0 -z-10 pointer-events-none bg-synthwaveNachtBlau" />;
 };
 
 export default BackgroundSketch;
