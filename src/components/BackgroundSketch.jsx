@@ -20,9 +20,9 @@ const BackgroundSketch = () => {
             if (window.p5) {
                 const sketch = (s) => {
                     const dotSize = 3;
-                    const spacing = dotSize * 4;
+                    const spacing = dotSize * 10;
                     const minTValue = 20;
-                    const areaOfEffect = 75;
+                    const areaOfEffect = 100;
 
                     let dots = [];
                     let isMouseMoved = false;
