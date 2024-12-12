@@ -1,8 +1,9 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import DevOverview from "../components/DevOverview.astro";
+import Skills from "../components/Skills.astro";
 import MostRecentArticle from "../components/MostRecentArticle.astro";
-import BackgroundSketch from "../components/BackgroundSketch";
+import SkillTabs from "../components/SkillTabs.astro";
 ---
 
 <MainLayout 
@@ -10,11 +11,11 @@ import BackgroundSketch from "../components/BackgroundSketch";
 	seoTitle="This is Sam - a frontend web developer portfolio page"
 	seoDesc="A New Portfolio Page made with astro and tailwindcss"
 >
-	<BackgroundSketch client:only="react" />
 	<DevOverview
 		name="Sam"
 		welcomeText="Welcome to my Developer Portfolio Page! I’m a passionate Frontend Developer with hands-on experience in backend technologies and cloud solutions. You can find me online under pseudonyms like hackbraten68, mosdev__, normalguy and sAM. This portfolio showcases my latest personal projects, along with blog posts where I share insights, tips, and lessons from my development journey."
 
 	/>
+	<SkillTabs />
 	<MostRecentArticle />
 </MainLayout>
