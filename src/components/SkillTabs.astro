@@ -2,11 +2,11 @@
 import Code from "../components/icons/Code.astro";
 import Backend from "../components/icons/Backend.astro";
 import Database from "../components/icons/Database.astro";
-import Tailwind from "../components/icons/Tailwind.astro";
+import {frontendTechnologies} from "../lib/frontendTechnologies";
 ---
 
-<div class="flex items-center justify-center mx-auto w-[1024px]">
-    <div x-data="{ activeTab: 0 }" class=" p-4 shadow rounded">
+<div class="flex items-center justify-center mx-auto max-w-[1024px]">
+    <div x-data="{ activeTab: 0 }" class="p-4">
         <!-- Tab Buttons -->
         <div class="flex border-b border-gray-700">
             <button
@@ -32,6 +32,11 @@ import Tailwind from "../components/icons/Tailwind.astro";
         <!-- Tab Content -->
         <div class="mt-4">
             <div x-show="activeTab === 0" class="text-gray-700">
+                {frontendTechnologies.map(tech => (
+                    <p>{tech.name}</p>
+                    <p>learned around {tech.since}</p>
+                    <p>used in {tech.used} repositories</p>
+                ))}
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At turpis praesent class consectetur gravida maecenas dapibus per magna hac quis. Himenaeos ipsum ultricies erat sapien eu tellus diam phasellus class amet luctus. Eu sapien conubia felis commodo ullamcorper curabitur massa potenti hendrerit id viverra. Ad ipsum convallis gravida nullam facilisi rhoncus faucibus dictumst nascetur et nullam. Arcu commodo varius auctor massa sociis metus interdum lorem posuere sollicitudin ultrices. Arcu magnis velit dui venenatis hac ridiculus nunc odio condimentum ornare laoreet.</p>
             </div>
             <div x-show="activeTab === 1" class="text-gray-700">
