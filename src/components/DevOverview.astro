@@ -4,7 +4,7 @@ import DevTiles from "./DevTiles.astro";
 const { name, welcomeText } = Astro.props;
 ---
 
-<section class="lg:flex items-center justify-center gap-6 h-5/6 p-4 mx-auto lg:max-w-[1024px] px-4 mb-12 bg-synthwaveNachtBlau border-2 border-deepPink rounded-2xl border-opacity-15">
+<section class="lg:flex items-center justify-center gap-6 h-5/6 p-4 mx-auto lg:max-w-[1024px] px-4 mb-12 bg-synthwaveNachtBlau border-2 border-deepPink rounded-2xl border-opacity-15 transition-border-opacity duration-300 ease-in hover:border-opacity-35">
     <div class="lg:w-2/3 pr-3 space-y-3">
         <p class="text-3xl font-menlo">Hi, my name is <span class="text-4xl lg:text-6xl text-deepPink">{name}</span></p>
         <div class="text-xl h-[50px]">
