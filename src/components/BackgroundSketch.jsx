@@ -108,7 +108,7 @@ const BackgroundSketch = () => {
         initializeP5();
     }, []);
 
-    return <div ref={sketchRef} className="fixed inset-0 -z-10 pointer-events-none bg-synthwaveNachtBlau" />;
+    return <div ref={sketchRef} className="fixed inset-0 -z-10 pointer-events-none" />;
 };
 
 export default BackgroundSketch;
