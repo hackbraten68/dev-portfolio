@@ -10,20 +10,20 @@ interface Checkpoints {
 
 export const checkpoints: Checkpoints[] = [
     {
-        title: 'Watched TRON Movie & decided to become a prgrammer one day',
+        title: 'Watched TRON Movie & decided to become a programmer one day',
         year: '1992',
-        month: 'December',
+        month: 'August',
         description: 'Beginn der Ausbildung zum Fachinformatiker in der Fachrichtung Anwendungsentwicklung.',
         iconColor: '#FF5733',
         icons: 'school'
     },
     {
-        title: 'HTML & CSS Grundlagen',
-        year: '2016',
-        month: 'Januar',
-        description: 'Erlernen der Grundlagen von HTML und CSS, Start der ersten kleinen Webprojekte.',
+        title: 'Internship @ local web agency',
+        year: '2000',
+        month: 'March',
+        description: 'Worked on my first HTML Projects using MS Frontpage and Adobe Dreamweaver',
         iconColor: '#3366FF',
-        icons: 'html5, css3'
+        icons: 'html, css'
     },
     {
         title: 'JavaScript Einführung',
