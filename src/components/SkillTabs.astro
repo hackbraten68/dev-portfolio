@@ -3,10 +3,13 @@ import Code from "../components/icons/Code.astro";
 import Backend from "../components/icons/Backend.astro";
 import Database from "../components/icons/Database.astro";
 import {frontendTechnologies} from "../lib/frontendTechnologies";
+import {backendTechnologies} from "../lib/backendTechnologies";
+import {databaseTechnologies} from "../lib/databaseTechnologies";
+import {devOpsCloudTechnologies} from "../lib/devOpsCloudTechnologies";
 ---
 
 <div class="flex items-center justify-center mx-auto max-w-[1024px]">
-    <div x-data="{ activeTab: 0 }" class="border-2 border-deepPink rounded-2xl border-opacity-15 transition-border-opacity duration-300 ease-in hover:border-opacity-35 bg-synthwaveNachtBlau p-4">
+    <div x-data="{ activeTab: 0 }" class="w-full border-2 border-deepPink rounded-2xl border-opacity-15 transition-border-opacity duration-300 ease-in hover:border-opacity-35 bg-synthwaveNachtBlau p-4">
         <!-- Tab Buttons -->
         <div class="flex border-b border-gray-700">
             <button
@@ -25,25 +28,65 @@ import {frontendTechnologies} from "../lib/frontendTechnologies";
                     @click="activeTab = 2"
                     :class="activeTab === 2 ? 'border-greenMint text-greenMint' : 'border-transparent text-greenMint hover:text-deepPink'"
                     class="flex items-center justify-center gap-x-2 px-4 py-2 font-medium text-sm border-b-2 focus:outline-none">
-                <Database class="text-white" /> <span>Database & More</span>
+                <Database class="text-white" /> <span>Database</span>
+            </button>
+            <button
+                    @click="activeTab = 3"
+                    :class="activeTab === 3 ? 'border-greenMint text-greenMint' : 'border-transparent text-greenMint hover:text-deepPink'"
+                    class="flex items-center justify-center gap-x-2 px-4 py-2 font-medium text-sm border-b-2 focus:outline-none">
+                <Database class="text-white" /> <span>DevOps & Cloud</span>
             </button>
         </div>
 
         <!-- Tab Content -->
         <div class="mt-4">
-            <div x-show="activeTab === 0" class="text-gray-700">
-                {frontendTechnologies.map(tech => (
-                    <p>{tech.name}</p>
-                    <p>learned around {tech.since}</p>
-                    <p>used in {tech.used} repositories</p>
+            <div x-show="activeTab === 0" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-8">
+                {frontendTechnologies.map((frontend) => (
+                        <div key={frontend.name} class="flex flex-col items-center">
+                            <img
+                                    src={frontend.icon}
+                                    alt={frontend.name}
+                                    class="h-20 w-20 object-contain text-gray-700 hover:text-primary-color-500 dark:text-gray-200 dark:hover:text-primary-color-dark-500"
+                            />
+                            <span class="mt-2 text-sm font-medium">{frontend.name}</span>
+                        </div>
                 ))}
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At turpis praesent class consectetur gravida maecenas dapibus per magna hac quis. Himenaeos ipsum ultricies erat sapien eu tellus diam phasellus class amet luctus. Eu sapien conubia felis commodo ullamcorper curabitur massa potenti hendrerit id viverra. Ad ipsum convallis gravida nullam facilisi rhoncus faucibus dictumst nascetur et nullam. Arcu commodo varius auctor massa sociis metus interdum lorem posuere sollicitudin ultrices. Arcu magnis velit dui venenatis hac ridiculus nunc odio condimentum ornare laoreet.</p>
             </div>
-            <div x-show="activeTab === 1" class="text-gray-700">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At turpis praesent class consectetur gravida maecenas dapibus per magna hac quis. Himenaeos ipsum ultricies erat sapien eu tellus diam phasellus class amet luctus. Eu sapien conubia felis commodo ullamcorper curabitur massa potenti hendrerit id viverra. Ad ipsum convallis gravida nullam facilisi rhoncus faucibus dictumst nascetur et nullam. Arcu commodo varius auctor massa sociis metus interdum lorem posuere sollicitudin ultrices. Arcu magnis velit dui venenatis hac ridiculus nunc odio condimentum ornare laoreet.</p>
+            <div x-show="activeTab === 1" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-8">
+                {backendTechnologies.map((backend) => (
+                        <div key={backend.name} class="flex flex-col items-center">
+                            <img
+                                    src={backend.icon}
+                                    alt={backend.name}
+                                    class="h-20 w-20 object-contain text-gray-700 hover:text-primary-color-500 dark:text-gray-200 dark:hover:text-primary-color-dark-500"
+                            />
+                            <span class="mt-2 text-sm font-medium">{backend.name}</span>
+                        </div>
+                ))}
             </div>
-            <div x-show="activeTab === 2" class="text-gray-700">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At turpis praesent class consectetur gravida maecenas dapibus per magna hac quis. Himenaeos ipsum ultricies erat sapien eu tellus diam phasellus class amet luctus. Eu sapien conubia felis commodo ullamcorper curabitur massa potenti hendrerit id viverra. Ad ipsum convallis gravida nullam facilisi rhoncus faucibus dictumst nascetur et nullam. Arcu commodo varius auctor massa sociis metus interdum lorem posuere sollicitudin ultrices. Arcu magnis velit dui venenatis hac ridiculus nunc odio condimentum ornare laoreet.</p>
+            <div x-show="activeTab === 2" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-8">
+                {databaseTechnologies.map((database) => (
+                        <div key={database.name} class="flex flex-col items-center">
+                            <img
+                                    src={database.icon}
+                                    alt={database.name}
+                                    class="h-20 w-20 object-contain text-gray-700 hover:text-primary-color-500 dark:text-gray-200 dark:hover:text-primary-color-dark-500"
+                            />
+                            <span class="mt-2 text-sm font-medium">{database.name}</span>
+                        </div>
+                ))}
+            </div>
+            <div x-show="activeTab === 3" class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-8">
+                {devOpsCloudTechnologies.map((devopscloud) => (
+                        <div key={devopscloud.name} class="flex flex-col items-center">
+                            <img
+                                    src={devopscloud.icon}
+                                    alt={devopscloud.name}
+                                    class="h-20 w-20 object-contain text-gray-700 hover:text-primary-color-500 dark:text-gray-200 dark:hover:text-primary-color-dark-500"
+                            />
+                            <span class="mt-2 text-sm font-medium">{devopscloud.name}</span>
+                        </div>
+                ))}
             </div>
         </div>
     </div>

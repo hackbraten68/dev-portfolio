@@ -9,4 +9,5 @@ export const icons = {
     dev: 'dev',
     youtube: 'youtube',
     instagram: 'instagram',
+    tailwind: 'tailwind',
 }
